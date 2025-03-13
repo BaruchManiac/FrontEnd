@@ -13,7 +13,9 @@ function backspace() {
 
 function calculate() {
     try {
-        document.getElementById("display").value = eval(document.getElementById("display").value);
+        let expression = document.getElementById("display").value;
+        let result = new Function(`return ${expression}`)();
+        document.getElementById("display").value = result;
     } catch (e) {
         alert("Errou Otário!");
         clearDisplay();
